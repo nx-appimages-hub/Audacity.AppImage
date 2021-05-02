@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 PWD:=$(shell pwd)
 
-all:
+all: clean
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir
 	apprepo --destination=$(PWD)/build appdir boilerplate audacity audacity-data libthai0 libselinux1
 
@@ -30,6 +30,5 @@ all:
 	export ARCH=x86_64 && $(PWD)/bin/appimagetool.AppImage $(PWD)/build/Boilerplate.AppDir $(PWD)/Audacity.AppImage
 	chmod +x $(PWD)/Audacity.AppImage
 
-
-	clean:
-		rm -rf $(PWD)/build
+clean:
+	rm -rf $(PWD)/build
